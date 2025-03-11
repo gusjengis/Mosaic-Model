@@ -1,6 +1,6 @@
 [package]
 name = "mosaic-model"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 repository = "https://github.com/gusjengis/Mosaic-Model"
 description = "The data model for Mosaic"
