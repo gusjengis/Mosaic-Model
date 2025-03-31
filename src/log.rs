@@ -1,24 +1,29 @@
 use std::fmt::Display;
 
+use crate::{deserialization::Deserialize, log_data::{Data, Datum, Interval}, log_type::Type};
+
 pub struct Log {
-    pub label: String,
     pub timestamp: i64,
+    pub data_type: Type,
+    pub data: Vec<Datum>,
 }
 
-impl Log {
-    pub fn from_http_body(body: String) -> Self {
-        let mut iter = body.split(",");
-        let label = iter.next().unwrap().to_string();
-        let timestamp = iter.next().unwrap();
+pub struct Interval {
+    pub start: i64,
+    pub end: i64,
+    pub data: Vec<Datum>,
+}
+
+pub struct Series {
+    logs: Vec<Log>
+}
+
+impl Interval {
+    from_logs(start: Log, end, Log) {
         Self {
-            label,
-            timestamp: timestamp.parse().unwrap(),
-        }
-    }
+            start: start.timestamp,
+            end: end.timestamp,
+            
 }
-
-impl Display for Log {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{},{}", self.label, self.timestamp)
     }
 }
